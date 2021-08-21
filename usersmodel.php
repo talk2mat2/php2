@@ -16,11 +16,27 @@ $sql= "select * from ".$tableName;
 $result= $this->db->conn->query($sql);
 $resultArray= array();
 while($item = mysqli_fetch_assoc($result)){
-   
+   //array_push shortcut
     $resultArray[]=$item;
+    //array_push($resultArray,$item);
 }
 
 return $resultArray;
+    }
+
+
+    public function RegisterUser($email,$username,$password){
+$sql= "INSERT INTO users (username,password,email) values ('$username','$password','$email')";
+print($sql);
+$result= $this->db->conn->query($sql);
+if($result===TRUE){
+ECHO "saved to database";
+header("Location: ".$_SERVER['PHP_SELF']);
+}
+else{
+    echo "an error occured";
+}
+print_r($result);
     }
 
 }

@@ -2,9 +2,22 @@
 include './includes/header.php';
 include './functions.php'
 ?>
+
         <h3>
             hello body<br/>
             <?php
+            // if(isset($_POST['alert'])){
+            // $email = $_POST['email'];
+            // $username = $_POST['username'];
+            //   $password = $_POST['password'];
+            //   if(empty($username)){
+             
+            //     header("Location: ".$_SERVER['PHP_SELF']);
+            //     echo "username is requireds";
+            //     return ;
+            //   }
+            //   $users->RegisterUser($email ,$username ,$password );
+            // };
           echo welcome(); 
           echo Hellobox(3,7)."<br/>";
           echo ceil(0.5),"<br/>";
@@ -26,10 +39,10 @@ include './functions.php'
         </h3>
         <?php
         
-        if(isset($_POST)){
-          // echo $_POST['name'];
-          print_r($_POST);
-        };
+        // if(isset($_POST)){
+        //   // echo $_POST['name'];
+        //   print_r($_POST);
+        // };
         ?>
         <form action='index.php' method='POST'>
 <input type='text'/>
@@ -65,7 +78,35 @@ printf("this is so %u good",$fucking);
 
   
 ?>
+<form  method="post">
+<input name='password'type='password' placeholder="password"/>
+<input name='username'  type='text' placeholder="username"/>
+<input  name='email' type='text' placeholder="email"/>
+<button name='alert' type='text' >click me</button>
+</form>
+<h1 class="loader hidden">LOADING....</h1>
+<h2 class="loader2 " id="errordisplay"></h2>
+<form  method="post">
+<input  id="password" name='password'type='password' placeholder="password"/>
+<input  id="username" name='username'  type='text' placeholder="username"/>
+<input  id="email" name='email'  type='text' placeholder="email"/>
 
+<button id='john'    >click me</button>
+</form>
+
+
+
+<form action=<?php echo $_SERVER['PHP_SELF'] ?>  method="post">
+<input  id="password" name='password2'type='password' placeholder="password"/>
+<input  id="username" name='username2'  type='text' placeholder="username"/>
+<input  id="email" name='email2'  type='text' placeholder="email"/>
+
+<button id='john2'    >click me</button>
+</form>
+
+
+
+<script  type="text/javascript" src="main.js"></script>
         <?php
 include './includes/footer.php'
 ?>

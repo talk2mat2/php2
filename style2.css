@@ -1,0 +1,12 @@
+
+.loader{
+    color:dodgerblue;
+}
+
+.loader.hidden{
+display: none;
+}
+
+.loader2{
+    color:tomato;
+}
