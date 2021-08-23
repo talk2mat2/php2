@@ -90,7 +90,7 @@ getproducts(){
 }
 const products =new saveProducts()
 document.addEventListener("loaded",products.saveProducts())
-saveProducts.comechop(params)
+// saveProducts.comechop(params)
 
 const clickbutton= document.getElementById('clickmenow')
 clickbutton.addEventListener('click',(e)=>console.log(e.target))

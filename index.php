@@ -6,18 +6,20 @@ include './functions.php'
         <h3>
             hello body<br/>
             <?php
-            // if(isset($_POST['alert'])){
+            if(isset($_POST['alert'])){
             // $email = $_POST['email'];
-            // $username = $_POST['username'];
-            //   $password = $_POST['password'];
-            //   if(empty($username)){
+            $email= filter_input(INPUT_POST,"email",FILTER_SANITIZE_EMAIL);
+            
+            $username = $_POST['username'];
+              $password = $_POST['password'];
+              if(empty($username)){
              
-            //     header("Location: ".$_SERVER['PHP_SELF']);
-            //     echo "username is requireds";
-            //     return ;
-            //   }
-            //   $users->RegisterUser($email ,$username ,$password );
-            // };
+                header("Location: ".$_SERVER['PHP_SELF']);
+                echo "<h2>username is requireds</h2>";
+                return ;
+              }
+              $users->RegisterUser($email ,$username ,$password );
+            };
           echo welcome(); 
           echo Hellobox(3,7)."<br/>";
           echo ceil(0.5),"<br/>";

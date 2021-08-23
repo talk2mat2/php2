@@ -26,7 +26,14 @@ return $resultArray;
 
 
     public function RegisterUser($email,$username,$password){
-$sql= "INSERT INTO users (username,password,email) values ('$username','$password','$email')";
+   
+        $real_email= $this->db->conn->real_escape_string($email);
+$sql= "INSERT INTO users (username,password,email) values ('$username','$password','$real_email')";
+//prevent sql injection
+// $sql2= "INSERT INTO users (username,password,email) values (':$username',':$password',':$real_email')";
+// $statement=$this->db->conn->prepare($sql2);
+// $statement->exe
+
 print($sql);
 $result= $this->db->conn->query($sql);
 if($result===TRUE){
@@ -38,6 +45,22 @@ else{
 }
 print_r($result);
     }
+
+public function deleteUser ($id){
+if(!isset($id)){
+    return;
+}
+$realid= $this->db->conn->real_escape_string($id);
+$sql= "DELETE FROM `users` WHERE id= $id";
+
+$result = $this->db->conn->query($sql);
+if($result===TRUE){
+    echo "user with id $id deleted successfully";
+}
+else{
+    echo "the requested operation wasnt successfull";
+}
+}
 
 }
 
